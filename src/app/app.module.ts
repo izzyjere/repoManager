@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,8 +12,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { RepoEffects } from './state/effects/repo.effects'; 
 import { repoReducer } from './state/reducers/repo.reducer';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { MatChipsModule } from '@angular/material/chips';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -25,11 +27,12 @@ import { MatChipsModule } from '@angular/material/chips';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
     MatChipsModule,
+    CommonModule,
     StoreModule.forRoot({ repo: repoReducer }),
-    EffectsModule.forRoot([RepoEffects])
+    EffectsModule.forRoot([RepoEffects]),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

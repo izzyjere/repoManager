@@ -28,6 +28,8 @@ export class RepoCardComponent implements OnInit {
             percentage: (bytes / totalBytes) * 100
           };
         });
+          // Sort the languages array by percentage
+        this.languages.sort((a, b) => b.percentage - a.percentage);
       });      
     });
   }
