@@ -12,6 +12,7 @@ import { RepoEffects } from './state/effects/repo.effects';
 import { repoReducer } from './state/reducers/repo.reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    MatChipsModule,
     StoreModule.forRoot({ repo: repoReducer }),
     EffectsModule.forRoot([RepoEffects])
   ],

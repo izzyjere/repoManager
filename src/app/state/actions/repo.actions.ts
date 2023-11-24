@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { GitHubRepository } from '../../models/repo';
+import { GitHubRepository } from '../../models/entities';
 
 
 export const loadRepo = createAction('[Repo] Load Repo', props<{ username: string }>());

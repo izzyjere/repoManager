@@ -1,15 +1,16 @@
-<div class="card">
+<div *ngIf="repoModel | async as repo" class="card">
   <div class="card-body">
     <div class="d-flex align-items-center justify-content-between mt-5">
       <div class="lesson_name">
         <div class="project-block light-info-bg">
           <i class="icofont-paint"></i>
         </div>
-        <span class="small text-muted project_name fw-bold"> Sunburst </span>
-        <h6 class="mb-0 fw-bold  fs-6  mb-2">Cash Leads</h6>
+        <span class="small text-muted project_name fw-bold"> {{ repo.full_name }} </span>
+        <h6 class="mb-0 fw-bold  fs-6  mb-2">{{ repo.name }}</h6>
       </div>
       <div class="btn-group" role="group" aria-label="Basic outlined example">
-        <a href="" title="View on github" class="btn btn-outline-secondary"><i class="fas fa-up-right-from-square text-info"></i></a>
+        <a href="" title="View on github" class="btn btn-outline-secondary"><i
+            class="fas fa-up-right-from-square text-info"></i></a>
       </div>
     </div>
     <div class="d-flex align-items-center">
@@ -26,7 +27,7 @@
       <div class="col-6">
         <div class="d-flex align-items-center">
           <i class="fas fa-code-fork"></i>
-          <span class="ms-2">5 Forks</span>
+          <span class="ms-2">{{repo.forks_count}} Forks</span>
         </div>
       </div>
       <div class="col-6">
@@ -38,13 +39,13 @@
       <div class="col-6">
         <div class="d-flex align-items-center">
           <i class="far fa-star"></i>
-          <span class="ms-2">5 Stars</span>
+          <span class="ms-2">{{ repo.stargazers_count }} Stars</span>
         </div>
       </div>
       <div class="col-6">
         <div class="d-flex align-items-center">
           <i class="icofont-ui-text-chat"></i>
-          <span class="ms-2">10 Issues</span>
+          <span class="ms-2">{{ repo.open_issues_count }} Issues</span>
         </div>
       </div>
     </div>
@@ -54,12 +55,12 @@
       <span class="small light-success-bg  p-1 rounded"><i class="fas fa-lock"></i> Private</span>
     </div>
     <div class="progress" style="height: 8px;">
-      <div title="C#" class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0"
-        aria-valuemax="100"></div>
+      <div title="C#" class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="15"
+        aria-valuemin="0" aria-valuemax="100"></div>
       <div title="Java" class="progress-bar bg-warning ms-1" role="progressbar" style="width: 25%" aria-valuenow="30"
         aria-valuemin="0" aria-valuemax="100"></div>
-      <div title="JavaScript" class="progress-bar bg-lightyellow ms-1" role="progressbar" style="width: 50%" aria-valuenow="39"
-        aria-valuemin="0" aria-valuemax="100"></div>
+      <div title="JavaScriptik" class="progress-bar bg-lightyellow ms-1" role="progressbar" style="width: 50%"
+        aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
   </div>
 </div>
