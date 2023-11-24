@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "repoManager:build:production"
+              "buildTarget": "repoManager:build:production"
             },
             "development": {
-              "browserTarget": "repoManager:build:development"
+              "buildTarget": "repoManager:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "repoManager:build"
+            "buildTarget": "repoManager:build"
           }
         },
         "test": {
