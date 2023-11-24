@@ -14,6 +14,10 @@ import { repoReducer } from './state/reducers/repo.reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { MatChipsModule } from '@angular/material/chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { ReactiveFormsModule  } from '@angular/forms';
+
+
 
 
 @NgModule({
@@ -29,10 +33,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     MatChipsModule,
+    MatFormFieldModule,
     CommonModule,
-    StoreModule.forRoot({ repo: repoReducer }),
+    ReactiveFormsModule ,
+    StoreModule.forRoot({ github: repoReducer }),
     EffectsModule.forRoot([RepoEffects]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule   
   ],
   providers: [],
   bootstrap: [AppComponent]

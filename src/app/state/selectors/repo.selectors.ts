@@ -1,8 +1,11 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
+// selectors.ts
+import { createSelector, createFeatureSelector } from '@ngrx/store';
+import { AppState } from '../reducers/repo.reducer'; 
 
-export const selectRepoState = createFeatureSelector<any>('repo');
+// Select the feature state (the state managed by this reducer)
+export const selectGitHubState = createFeatureSelector<AppState>('github');
 
-export const selectRepo = createSelector(
-  selectRepoState,
-  (state) => state
-);
+// Selectors for specific pieces of state
+export const selectUser = createSelector(selectGitHubState, (state) => state.user);
+export const selectError = createSelector(selectGitHubState, (state) => state.error);
+export const selectRepos = createSelector(selectGitHubState, (state) => state.repos);

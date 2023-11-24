@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input } from '@angular/core';
+import { GitHubUser } from '../../models/entities';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectUser } from '../../state/selectors/repo.selectors'; 
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,8 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-
-  constructor() { }
+  userModel$ = this.store.select(selectUser);
+  constructor(private store : Store ) { }
 
   ngOnInit() {
   }

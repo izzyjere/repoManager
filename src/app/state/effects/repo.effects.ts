@@ -9,15 +9,26 @@ import * as repoActions from '../actions/repo.actions';
 @Injectable()
 export class RepoEffects {
 
-  loadRepo$ = createEffect(() => this.actions$.pipe(
-    ofType(repoActions.loadRepo),
+  loadRepos$ = createEffect(() => this.actions$.pipe(
+    ofType(repoActions.loadRepos),
     mergeMap((action) => this.githubApiService.getRepositories(action.username)
       .pipe(
-        map(data => repoActions.loadRepoSuccess({ repo: data })),
-        catchError(error => of(repoActions.loadRepoFailure({ error })))
+        map(repos => repoActions.loadReposSuccess({ repos })),
+        catchError(error => of(repoActions.loadReposFailure({ error: 'Failed to load repos. Invalid username or no internet' })))
       ))
     )
   );
+  loadGitHubUser$ = createEffect(() =>
+  this.actions$.pipe(
+    ofType(repoActions.loadGitHubUser),
+    mergeMap(action =>
+      this.githubApiService.getUser(action.username).pipe(
+        map(user => repoActions.loadGitHubUserSuccess({ user })),
+        catchError(error => of(repoActions.loadGitHubUserFailure({ error: 'Invalid username or no internet.' })))
+      )
+    )
+  )
+);
 
   constructor(
     private actions$: Actions,
